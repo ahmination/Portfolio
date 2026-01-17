@@ -1,54 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-        h1 { color: #333; }
-        .project {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Welcome to My Portfolio</h1>
-    <p>This is my first GitHub Pages site!</p>
-    
-    <h2>My Projects</h2>
-    <div id="projects">Loading projects...</div>
-
-    <script>
-        // Fetch your GitHub repositories
-        fetch('https://api.github.com/users/ahmination/')
-            .then(response => response.json())
-            .then(repos => {
-                const projectsDiv = document.getElementById('projects');
-                projectsDiv.innerHTML = '';
-                
-                repos.forEach(repo => {
-                    projectsDiv.innerHTML += `
-                        <div class="project">
-                            <h3>${repo.name}</h3>
-                            <p>${repo.description || 'No description'}</p>
-                            <a href="${repo.html_url}" target="_blank">View on GitHub</a>
-                        </div>
-                    `;
-                });
-            })
-            .catch(error => {
-                document.getElementById('projects').innerHTML = 'Error loading projects';
-                console.error(error);
-            });
-    </script>
+    <div id="projects"></div>
+    <script src="script.js"></script>
 </body>
 </html>
